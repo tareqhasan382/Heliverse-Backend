@@ -4,9 +4,7 @@ import cors from 'cors'
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
 import httpStatus from 'http-status'
 //import ApiError from './errors/ApiError'
-// import { AuthRoute } from './app/modules/auth/auth.route'
 import cookieParser from 'cookie-parser'
-// import { FoodRoute } from './app/modules/food/food.route'
 import { UserRoute } from './app/modules/user/user.route'
 
 const corsOptions = {
