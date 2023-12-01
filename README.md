@@ -1,6 +1,6 @@
-# Food Website Backend
+# Heliverse Website Backend
 
-The Food Website built using TypeScript, Express.js, Zod validation, and MongoDB, jwt Authentication and payment integration stripe .
+The Food Website built using TypeScript, Express.js, Zod validation, and MongoDB, .
 
 # Setup Projet
 
