@@ -1,0 +1,31 @@
+http://localhost:5000/api/users?limit=5&domain=Sales&gender=Female&available=true
+
+you can now filter users based on the provided query parameters. For example:
+
+  const query: FilterQuery<IUser> = {}
+  if (searchName) {
+    query.$or = [
+      { first_name: { $regex: searchName, $options: 'i' } },
+      { last_name: { $regex: searchName, $options: 'i' } },
+    ]
+  }
+  // Domain, Gender, and Availability
+  if (filterField) {
+    console.log('filterField', filterField)
+
+    if (filterField.gender) {
+      //filter.available = req.query.available === 'true';
+      query.gender = filterField
+    }
+
+    if (filterField.available !== undefined) {
+      query.available = filterField.available
+    }
+  }
+
+  ===============================
+  if (filterField) {
+    console.log('query filter:', filterField)
+    query.gender = filterField
+    // Add more fields to filter as needed
+  }
