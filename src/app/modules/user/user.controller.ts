@@ -18,6 +18,7 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
 })
 
 const getUsers = catchAsync(async (req: Request, res: Response) => {
+  console.log(req.query)
   const result = await UserService.getUsers(req.query)
 
   res.status(200).json({
@@ -46,7 +47,8 @@ const getUser = catchAsync(async (req: Request, res: Response) => {
 const updateUser = catchAsync(async (req: Request, res: Response) => {
   const id = req.params
   const payload = req.body
-
+  console.log('id:', id)
+  console.log('payload:', payload)
   // await UserService.updateUser(id, payload)
 
   try {

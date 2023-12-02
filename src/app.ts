@@ -8,7 +8,10 @@ import cookieParser from 'cookie-parser'
 import { UserRoute } from './app/modules/user/user.route'
 
 const corsOptions = {
-  origin: ['http://localhost:5173'],
+  origin: [
+    'http://localhost:5173',
+    'https://heliverse-frontend-jade.vercel.app',
+  ],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 }

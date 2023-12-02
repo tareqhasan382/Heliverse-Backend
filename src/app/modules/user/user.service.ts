@@ -7,7 +7,7 @@ import UserModel from './user.model'
 import { IGenericResponse } from '../../../interface/common'
 import { SortOrder } from 'mongoose'
 const createUser = async (payload: IUser): Promise<IUser | null> => {
-  console.log('Add payload:', payload)
+  // console.log('Add payload:', payload)
   const createdUser = await UserModel.create(payload)
   if (!createdUser) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'User created Field!')
@@ -41,7 +41,7 @@ const getUsers = async (payload: any): Promise<IGenericResponse<IUser[]>> => {
 
   const query: any = {}
   // const query: FilterQuery<IUser> = {}
-  console.log('query:', query)
+  // console.log('query:', query)
   if (searchName) {
     query.$or = [
       { first_name: { $regex: searchName, $options: 'i' } },
@@ -56,7 +56,7 @@ const getUsers = async (payload: any): Promise<IGenericResponse<IUser[]>> => {
   if (domain) {
     query.domain = domain
   }
-  if (availability !== undefined) {
+  if (availability) {
     query.available = availability
   }
 
@@ -89,9 +89,6 @@ const updateUser = async (
   id: any,
   payload: Partial<IUser>
 ): Promise<IUser | null> => {
-  // const result: any = await UserModel.updateOne({ _id: id.id }, payload, {
-  //   new: true,
-  // })
   try {
     const updatedUser: any = await UserModel.updateOne(
       { _id: id.id },
