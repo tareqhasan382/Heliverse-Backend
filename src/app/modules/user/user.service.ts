@@ -7,7 +7,6 @@ import UserModel from './user.model'
 import { IGenericResponse } from '../../../interface/common'
 import { SortOrder } from 'mongoose'
 const createUser = async (payload: IUser): Promise<IUser | null> => {
-  // console.log('Add payload:', payload)
   const createdUser = await UserModel.create(payload)
   if (!createdUser) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'User created Field!')

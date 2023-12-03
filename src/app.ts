@@ -6,6 +6,7 @@ import httpStatus from 'http-status'
 //import ApiError from './errors/ApiError'
 import cookieParser from 'cookie-parser'
 import { UserRoute } from './app/modules/user/user.route'
+import { teamRoute } from './app/modules/team/team.route'
 
 const corsOptions = {
   origin: [
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // app.use('/api', AuthRoute)
 app.use('/api', UserRoute)
+app.use('/api', teamRoute)
 //Testing Route
 // app.get('/', async (req: Request, res: Response, next: NextFunction) => {
 //   throw new Error('Testing Error log')

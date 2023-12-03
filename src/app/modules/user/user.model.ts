@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose'
 import { IUser, IUserModel } from './user.interface'
-// import { IFood, IFoodModel } from './food.interface'
 
 const userSchema = new Schema<IUser>(
   {
@@ -17,8 +16,3 @@ const userSchema = new Schema<IUser>(
 
 const UserModel = model<IUser, IUserModel>('users', userSchema)
 export default UserModel
-
-// name: string
-// image: string
-// category: string
-// price:
