@@ -33,17 +33,22 @@ const getUsers = catchAsync(async (req: Request, res: Response) => {
 })
 const getUser = catchAsync(async (req: Request, res: Response) => {
   const data: any = req.params
-  const result = await UserService.getUser(data?.id)
+  console.log('details:', data)
+  try {
+    const result = await UserService.getUser(data?.id)
 
-  if (result) {
-    sendResponse<IUser[]>(res, {
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'User retrive in successfully!',
-      data: result,
-    })
-  } else {
-    res.status(404).json({ error: 'User not found' })
+    if (result) {
+      sendResponse<IUser[]>(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: 'User retrive in successfully!',
+        data: result,
+      })
+    } else {
+      res.json({ error: 'User not found' })
+    }
+  } catch (error) {
+    console.log(error)
   }
 })
 const updateUser = catchAsync(async (req: Request, res: Response) => {

@@ -16,7 +16,7 @@ async function main() {
     console.log(`Database is connected successfully`)
 
     server = app.listen(config.port, () => {
-      console.log(`Application Food app listening on port ${config.port}`)
+      console.log(`Application app listening on port ${config.port}`)
     })
   } catch (error) {
     console.log('Field to connect Database', error)

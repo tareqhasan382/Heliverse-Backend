@@ -1,7 +1,7 @@
 import { Model, Types } from 'mongoose'
 
 export type ITeam = {
-  name: string
+  // name: string
   users: Types.ObjectId
 }
 

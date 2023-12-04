@@ -6,8 +6,8 @@ import TeamModel from './team.model'
 
 // create cow
 const createTeam = catchAsync(async (req: Request, res: Response) => {
-  const payload = req.body
   try {
+    const payload = req.body
     const existingUsers = await UserModel.findOne({ _id: payload.users })
     // Check if users are Availability
     if (!existingUsers?.available) {
@@ -26,13 +26,21 @@ const createTeam = catchAsync(async (req: Request, res: Response) => {
 })
 
 const getTeams = catchAsync(async (req: Request, res: Response) => {
-  const result = await TeamModel.find().populate('users')
-  res.json({ data: result })
+  try {
+    const result = await TeamModel.find().populate('users')
+    res.json({ data: result })
+  } catch (error) {
+    console.log(error)
+  }
 })
 const getTeam = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params
-  const result = await TeamModel.findOne({ _id: id }).populate('users')
-  res.json({ data: result })
+  try {
+    const { id } = req.params
+    const result = await TeamModel.findOne({ _id: id }).populate('users')
+    res.json({ data: result })
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 export const TeamController = { createTeam, getTeam, getTeams }
